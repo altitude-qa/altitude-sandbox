@@ -26,6 +26,19 @@ describe('utils.etag(body, encoding)', function(){
   })
 })
 
+describe('utils.isEmpty(obj)', function(){
+  it('should be true for an object with no own enumerable properties', function(){
+    assert.strictEqual(utils.isEmpty({}), true)
+    assert.strictEqual(utils.isEmpty(Object.create(null)), true)
+    assert.strictEqual(utils.isEmpty([]), true)
+  })
+
+  it('should be false when own enumerable properties exist', function(){
+    assert.strictEqual(utils.isEmpty({ a: 1 }), false)
+    assert.strictEqual(utils.isEmpty([1]), false)
+  })
+})
+
 describe('utils.normalizeType acceptParams method', () => {
   it('should handle a type with a malformed parameter and break the loop in acceptParams', () => {
     const result = utils.normalizeType('text/plain;invalid');
