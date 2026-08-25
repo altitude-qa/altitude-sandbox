@@ -149,3 +149,22 @@ describe('utils.isNumber(val)', function(){
     assert.strictEqual(utils.isNumber(true), false)
   })
 })
+
+describe('utils.isDate(val)', function(){
+  it('should be true for valid Date instances', function(){
+    assert.strictEqual(utils.isDate(new Date()), true)
+    assert.strictEqual(utils.isDate(new Date(0)), true)
+  })
+
+  it('should be false for invalid dates', function(){
+    assert.strictEqual(utils.isDate(new Date('nonsense')), false)
+  })
+
+  it('should be false for non-dates', function(){
+    assert.strictEqual(utils.isDate('2026-08-26'), false)
+    assert.strictEqual(utils.isDate(1756166400000), false)
+    assert.strictEqual(utils.isDate(null), false)
+    assert.strictEqual(utils.isDate(undefined), false)
+    assert.strictEqual(utils.isDate({}), false)
+  })
+})
