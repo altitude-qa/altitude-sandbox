@@ -126,3 +126,26 @@ describe('utils.compileETag()', function () {
     assert.throws(() => utils.compileETag({}), TypeError);
   });
 });
+
+describe('utils.isNumber(val)', function(){
+  it('should be true for finite numbers', function(){
+    assert.strictEqual(utils.isNumber(0), true)
+    assert.strictEqual(utils.isNumber(42), true)
+    assert.strictEqual(utils.isNumber(-1.5), true)
+  })
+
+  it('should be false for NaN and infinities', function(){
+    assert.strictEqual(utils.isNumber(NaN), false)
+    assert.strictEqual(utils.isNumber(Infinity), false)
+    assert.strictEqual(utils.isNumber(-Infinity), false)
+  })
+
+  it('should be false for non-numbers', function(){
+    assert.strictEqual(utils.isNumber('42'), false)
+    assert.strictEqual(utils.isNumber(null), false)
+    assert.strictEqual(utils.isNumber(undefined), false)
+    assert.strictEqual(utils.isNumber({}), false)
+    assert.strictEqual(utils.isNumber([]), false)
+    assert.strictEqual(utils.isNumber(true), false)
+  })
+})
