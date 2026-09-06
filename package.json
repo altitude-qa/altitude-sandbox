@@ -1,0 +1,10 @@
+{
+  "name": "qa-clean-take-3",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "serve": "node src/server.mjs",
+    "build:gallery": "node scripts/build-gallery.mjs"
+  }
+}
