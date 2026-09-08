@@ -1,0 +1,7 @@
+{
+  "name": "shopfront",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test", "serve": "node server.mjs", "build:gallery": "node build-gallery.mjs" },
+  "devDependencies": { "typescript": "^5.5.0" }
+}
